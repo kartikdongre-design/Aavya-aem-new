@@ -1,0 +1,5 @@
+# Content mount: replace YOUR_FOLDER_ID with your Google Drive folder ID from AEM
+# (Project → Content configuration). Commit this file and publish index.md from
+# that folder so https://main--{repo}--{owner}.aem.page/ stops returning 404.
+mountpoints:
+  /: https://drive.google.com/drive/folders/YOUR_FOLDER_ID

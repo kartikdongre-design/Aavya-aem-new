@@ -1,37 +1,197 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity -- corporate hero BEM */
+
+/* Corporate landing hero (Figma-aligned) */
 .hero-container .hero-wrapper {
-  max-width: unset;
+  max-width: none;
   padding: 0;
 }
 
-.hero {
+.hero.hero--corporate {
+  --hero-overlay: linear-gradient(
+    105deg,
+    rgb(32 18 48 / 68%) 0%,
+    rgb(18 12 28 / 52%) 38%,
+    rgb(8 10 18 / 42%) 72%,
+    rgb(6 8 14 / 38%) 100%
+  );
+
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  display: flex;
+  min-height: min(92vh, 920px);
+  align-items: stretch;
+  padding: 0;
+  background: #0a0a0a;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+.hero.hero--corporate > div {
+  width: 100%;
 }
 
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
+.hero.hero--corporate > div > div {
+  position: relative;
+  display: flex;
+  min-height: inherit;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--corp-header-stack, 6.75rem) + 1.5rem) 24px 8rem;
   box-sizing: border-box;
+  isolation: isolate;
 }
 
-.hero img {
-  object-fit: cover;
+.hero.hero--corporate picture {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  margin: 0;
+}
+
+.hero.hero--corporate picture img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center;
+  min-height: 800px;
+}
+
+.hero__overlay {
+  position: absolute;
+  z-index: 1;
+  background: var(--hero-overlay);
+  inset: 0;
+  pointer-events: none;
+  min-height: 800px;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1264px;
+  margin: 0 auto;
+}
+
+.hero__content-inner {
+  max-width: min(52rem, 100%);
+}
+
+.hero.hero--corporate h1 {
+  margin: 0 0 1.25rem;
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.hero.hero--corporate .hero__content-inner > p:not(.button-wrapper) {
+  margin: 0 0 1.75rem;
+  color: rgb(255 255 255 / 92%);
+  font-size: clamp(1rem, 1.45vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.hero__cta-wrap {
+  margin: 0;
+}
+
+/* Override global .button.accent after decorateButtons (Figma white pill) */
+.hero.hero--corporate .hero__content-inner p.button-wrapper a.button:any-link,
+.hero.hero--corporate .hero__content-inner p.button-wrapper a.button.accent:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: #fff !important;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 15%);
+  color: #1a1a1a !important;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.hero.hero--corporate .hero__content-inner p.button-wrapper a.button:hover,
+.hero.hero--corporate .hero__content-inner p.button-wrapper a.button:focus-visible,
+.hero.hero--corporate .hero__content-inner p.button-wrapper a.button.accent:hover,
+.hero.hero--corporate .hero__content-inner p.button-wrapper a.button.accent:focus-visible {
+  border-color: transparent !important;
+  background: #fff !important;
+  box-shadow: 0 6px 28px rgb(0 0 0 / 22%);
+  color: #000 !important;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.hero__cta-arrow {
+  font-weight: 500;
+  line-height: 1;
+}
+
+.hero__carousel {
+  position: absolute;
+  z-index: 3;
+  right: 24px;
+  bottom: 2rem;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.hero__carousel-dot {
+  width: 22px;
+  height: 3px;
+  padding: 0;
+  border: none;
+  border-radius: 2px;
+  background: rgb(255 255 255 / 32%);
+  cursor: pointer;
+  transition:
+    width 0.25s ease,
+    background 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.hero__carousel-dot.is-active {
+  width: 44px;
+  height: 4px;
+  border-radius: 3px;
+  background: #fff;
+  opacity: 1;
+}
+
+.hero__carousel-dot:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 @media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
+  .hero.hero--corporate > div > div {
+    justify-content: center;
+    padding: calc(var(--corp-header-stack, 6.75rem) + 2rem) max(32px, calc((100vw - 1264px) / 2 + 24px)) 8.5rem;
   }
+
+  .hero__carousel {
+    right: max(24px, calc((100vw - 1264px) / 2 + 24px));
+    bottom: 2.25rem;
+  }
+}
+
+main > .section:has(.hero--corporate) {
+  margin: 0;
+}
+
+/* Auto-built hero leaves an empty section before the next block; hide that wrapper */
+main > .section.hero-container + .section:not(.stats-highlight-container) {
+  display: none !important;
+}
+
+main > .section:has(.hero--corporate) > div {
+  max-width: none;
+  margin: 0;
+  padding: 0;
 }

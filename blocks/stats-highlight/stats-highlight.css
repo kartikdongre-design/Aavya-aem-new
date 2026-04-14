@@ -1,0 +1,168 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity -- BEM + section wrapper order */
+
+/* Overlap card + stats (Figma-aligned) */
+.stats-highlight-container .stats-highlight-wrapper {
+  max-width: none;
+  padding: 0;
+}
+
+.stats-highlight {
+  margin-top: clamp(-3rem, -5vw, -2rem);
+  padding: 0 16px 3rem;
+  border-radius: 48px 48px 0 0;
+  background: #fff;
+  box-shadow: 0 -12px 48px rgb(15 12 40 / 8%);
+}
+
+.stats-highlight > div:first-child {
+  display: grid;
+  max-width: 1264px;
+  margin: 0 auto;
+  padding: 2.75rem 1.5rem 2.5rem;
+  gap: 2rem 2.5rem;
+}
+
+main > .section:has(.stats-highlight) {
+  position: relative;
+  z-index: 4;
+  margin: 0;
+  padding: 0;
+}
+
+main > .section:has(.stats-highlight) > div {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.stats-highlight__intro h2 {
+  margin: 0 0 0.75rem;
+  color: #0f0f0f;
+  font-family: var(--body-font-family);
+  font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.stats-highlight__intro p {
+  margin: 0;
+  color: #6b6b6b;
+  font-size: clamp(0.9375rem, 1.15vw, 1.0625rem);
+  line-height: 1.55;
+}
+
+.stats-highlight__metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 2.5rem;
+  align-items: flex-start;
+}
+
+.stats-highlight__metric {
+  display: flex;
+  min-width: min(100%, 220px);
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.stats-highlight__metric picture,
+.stats-highlight__metric img {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.stats-highlight-metric-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.stats-highlight-metric-stack p {
+  margin: 0;
+}
+
+.stats-highlight-metric-stack p:first-of-type {
+  color: #111;
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.stats-highlight-metric-stack p:last-of-type {
+  color: #6b6b6b;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.stats-highlight__metric--factory,
+.stats-highlight__metric--cube {
+  position: relative;
+}
+
+.stats-highlight__metric--factory::before,
+.stats-highlight__metric--cube::before {
+  content: '';
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background-color: #1c6fd9;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 28px 28px;
+}
+
+.stats-highlight__metric--factory::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 32 32'%3E%3Cpath stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.8' d='M6 26V14l4-2v8l4-2v8l4-2v6M22 10l4 2v14'/%3E%3Cpath stroke='%23fff' stroke-linecap='round' stroke-width='1.8' d='M4 26h24'/%3E%3C/svg%3E");
+}
+
+.stats-highlight__metric--cube::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 32 32'%3E%3Cpath stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.8' d='M16 4 6 9v14l10 5 10-5V9L16 4Z'/%3E%3Cpath stroke='%23fff' stroke-linecap='round' stroke-width='1.5' d='M6 9 16 14l10-5M16 14v15'/%3E%3C/svg%3E");
+}
+
+.stats-highlight__metric strong {
+  display: block;
+  color: #0f0f0f;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.stats-highlight__metric > p {
+  margin: 0.35rem 0 0;
+  color: #6b6b6b;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+@media (width >= 900px) {
+  .stats-highlight {
+    margin-top: -5.5rem;
+    padding: 0 24px 4rem;
+    border-radius: 4rem 4rem 0 0;
+  }
+
+  .stats-highlight > div:first-child {
+    grid-template-columns: minmax(240px, 1fr) minmax(320px, 1.15fr);
+    align-items: start;
+    padding: 3.25rem 2rem 3rem;
+    gap: 2rem 4rem;
+  }
+
+  .stats-highlight__metrics {
+    gap: 2.5rem 3rem;
+    justify-content: flex-end;
+  }
+}
+
+@media (width >= 1200px) {
+  .stats-highlight > div:first-child {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}

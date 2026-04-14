@@ -80,6 +80,16 @@ body {
   line-height: 1.6;
 }
 
+/* Avoid dark “void” below corporate hero when stats card overlaps */
+body.has-corp-hero main {
+  background-color: #fff;
+}
+
+/* Pull hero under sticky header so the banner still fills the viewport behind the glass bar */
+body.has-corp-hero main > .section.hero-container:first-child {
+  margin-top: calc(-1 * var(--corp-header-stack, 6.75rem));
+}
+
 body.appear {
   display: block;
 }

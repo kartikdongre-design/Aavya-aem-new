@@ -19,16 +19,29 @@ import {
 function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
-  // eslint-disable-next-line no-bitwise
-  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
-    // Check if h1 or picture is already inside a hero block
-    if (h1.closest('.hero') || picture.closest('.hero')) {
-      return; // Don't create a duplicate hero block
-    }
-    const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1] }));
-    main.prepend(section);
+  // eslint-disable-next-line no-bitwise -- document order check
+  const pictureBeforeH1 = h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING;
+  if (!h1 || !picture || !pictureBeforeH1) {
+    return;
   }
+  if (h1.closest('.hero') || picture.closest('.hero')) {
+    return;
+  }
+  const elems = [picture, h1];
+  let el = h1.nextElementSibling;
+  while (el) {
+    const isSubcopy = el.tagName === 'P' && !el.classList.contains('button-wrapper');
+    const isCta = el.tagName === 'P' && el.classList.contains('button-wrapper');
+    if (isSubcopy || isCta) {
+      elems.push(el);
+      el = el.nextElementSibling;
+    } else {
+      break;
+    }
+  }
+  const section = document.createElement('div');
+  section.append(buildBlock('hero', { elems }));
+  main.prepend(section);
 }
 
 /**
@@ -120,6 +133,10 @@ function decorateButtons(main) {
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
   decorateIcons(main);
+  if (window.isErrorPage) {
+    decorateSections(main);
+    return;
+  }
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="script-src 'nonce-aem' 'strict-dynamic' 'unsafe-inline' http: https:; base-uri 'self'; object-src 'none';"
+    move-to-http-header="true"
+  >
+  <title>Saudi Ceramics — Corporate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script nonce="aem" src="/scripts/aem.js" type="module"></script>
+  <script nonce="aem" src="/scripts/scripts.js" type="module"></script>
+  <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="stylesheet" href="/styles/lazy-styles.css">
+  <!-- Block CSS: load with the page so layout is styled before/without waiting on loadBlock().
+       Paths must match aem.js loadCSS (`/blocks/{name}/{name}.css`) so duplicates are skipped. -->
+  <link rel="stylesheet" href="/blocks/header/header.css">
+  <link rel="stylesheet" href="/blocks/hero/hero.css">
+  <link rel="stylesheet" href="/blocks/stats-highlight/stats-highlight.css">
+  <link rel="stylesheet" href="/blocks/journey-timeline/journey-timeline.css">
+  <link rel="stylesheet" href="/blocks/categories-grid/categories-grid.css">
+  <link rel="stylesheet" href="/blocks/footer/footer.css">
+</head>
+
+<body>
+  <header></header>
+  <main>
+    <div>
+      <!-- Explicit hero block: stops buildHeroBlock from prepending a second copy -->
+      <div class="hero">
+        <div>
+          <!-- h1 before <picture> avoids wrapTextNodes invalid <p> wrapping (aem.js) -->
+          <div>
+            <h1>Discover The Saudi Ceramics Difference</h1>
+            <p>
+              We are the leading national provider of world-class manufacturing solutions including ceramics, sanitary ware,
+              water, heaters, red bricks, and desert mines.
+            </p>
+            <p class="button-wrapper">
+              <strong><em><a href="#">Explore Products</a></em></strong>
+            </p>
+            <picture>
+              <source type="image/png" srcset="/images/banner-image.png" media="(min-width: 600px)">
+              <img loading="eager" alt="Luxury bathroom interior with ceramics" src="/images/banner-image.png" width="1600" height="900">
+            </picture>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="stats-highlight">
+        <div>
+          <div>
+            <h2>Let The Numbers Speak</h2>
+            <p>Showcasing our production credibility and global reach</p>
+          </div>
+          <div>
+            <div>
+              <p>12+</p>
+              <p>Factories &amp; Plants</p>
+            </div>
+            <div>
+              <p>500k +</p>
+              <p>sqm/year Production Capacity</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>
+        <div class="journey-timeline">
+          <div>
+            <div>
+              <h2>Our Journey Through The Years</h2>
+              <p>
+                Explore key milestones that shaped our growth from a national ceramics pioneer into a diversified
+                manufacturing leader serving construction and industry across the region.
+              </p>
+            </div>
+            <div></div>
+          </div>
+          <div>
+            <div>
+              <ul>
+                <li>
+                  <p class="journey-timeline__year-tag">1977</p>
+                  <h3>Foundations</h3>
+                  <p>
+                    Saudi Ceramics was established with a vision to deliver quality building materials for a growing
+                    Kingdom.
+                  </p>
+                </li>
+                <li>
+                  <p class="journey-timeline__year-tag">1980s</p>
+                  <h3>Early Growth</h3>
+                  <p>
+                    Production capacity expanded and distribution networks reached key cities across Saudi Arabia.
+                  </p>
+                </li>
+                <li>
+                  <p class="journey-timeline__year-tag">1990s</p>
+                  <h3>Product Line Expansion</h3>
+                  <p>
+                    We broadened our portfolio beyond core ceramics into sanitary ware, water heaters, and complementary
+                    building solutions—strengthening our role as a full-service partner for construction projects.
+                  </p>
+                  <picture>
+                    <source type="image/png" srcset="/images/banner-image.png" media="(min-width: 600px)">
+                    <img
+                      loading="lazy"
+                      alt="Modern bathroom with ceramic finishes and water heater"
+                      src="/images/banner-image.png"
+                      width="1600"
+                      height="900"
+                    >
+                  </picture>
+                </li>
+                <li>
+                  <p class="journey-timeline__year-tag">2000s</p>
+                  <h3>Scale &amp; Standards</h3>
+                  <p>
+                    Investments in plant modernization and quality systems supported larger projects and export readiness.
+                  </p>
+                </li>
+                <li>
+                  <p class="journey-timeline__year-tag">2010s</p>
+                  <h3>Diversification</h3>
+                  <p>
+                    New categories and industrial minerals extended our footprint while keeping sustainability in focus.
+                  </p>
+                </li>
+                <li>
+                  <p class="journey-timeline__year-tag">2020s</p>
+                  <h3>Innovation Forward</h3>
+                  <p>
+                    Digital tools, customer experience, and continuous improvement guide the next chapter of Saudi Ceramics.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>
+        <div class="categories-grid">
+          <div>
+            <div>
+              <h2>Our Categories We Specialise In</h2>
+              <p>
+                Explore our wide range of premium sanitary ware designed for modern bathrooms. From stylish wash basins to
+                durable fittings, each category offers quality, functionality, and elegant design.
+              </p>
+            </div>
+            <div class="categories-grid__actions">
+              <a href="#" class="categories-grid__view-all">View All Categories</a>
+            </div>
+          </div>
+          <div>
+            <div>
+              <ul>
+                <li>
+                  <a href="#">
+                    <picture>
+                      <img loading="lazy" alt="Ceramic tiles product range" src="/images/banner-image.png" width="800" height="500">
+                    </picture>
+                    <h3>Ceramic Tiles</h3>
+                    <span class="categories-grid__card-cta">Download Catalog</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <picture>
+                      <img loading="lazy" alt="Sanitary ware bathroom interior" src="/images/banner-image.png" width="800" height="500">
+                    </picture>
+                    <h3>Sanitary Ware</h3>
+                    <span class="categories-grid__card-cta">Download Catalog</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <picture>
+                      <img loading="lazy" alt="Porcelain tiles and bathroom wall" src="/images/banner-image.png" width="800" height="500">
+                    </picture>
+                    <h3>Porcelain Tiles</h3>
+                    <span class="categories-grid__card-cta">Download Catalog</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <picture>
+                      <img loading="lazy" alt="Electric water heater in bathroom" src="/images/banner-image.png" width="800" height="500">
+                    </picture>
+                    <h3>Electric Water Heaters</h3>
+                    <span class="categories-grid__card-cta">Download Catalog</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <picture>
+                      <img loading="lazy" alt="Ceramic tiles product range" src="/images/banner-image.png" width="800" height="500">
+                    </picture>
+                    <h3>Ceramic Tiles</h3>
+                    <span class="categories-grid__card-cta">Download Catalog</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <picture>
+                      <img loading="lazy" alt="Sanitary ware bathroom interior" src="/images/banner-image.png" width="800" height="500">
+                    </picture>
+                    <h3>Sanitary Ware</h3>
+                    <span class="categories-grid__card-cta">Download Catalog</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>
+
+</html>

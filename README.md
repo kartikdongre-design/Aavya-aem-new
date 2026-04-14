@@ -29,6 +29,14 @@ npm run lint
 
 1. Create a new repository based on the `aem-boilerplate` template
 1. Add the [AEM Code Sync GitHub App](https://github.com/apps/aem-code-sync) to the repository
-1. Install the [AEM CLI](https://github.com/adobe/helix-cli): `npm install -g @adobe/aem-cli`
-1. Start AEM Proxy: `aem up` (opens your browser at `http://localhost:3000`)
+1. Install dependencies: `npm i`
+1. **Start the dev server** (serves the corporate home from **`index.html` at the repo root**):
+   ```sh
+   npm start
+   ```
+   Or run plain `aem up` — the CLI uses `--html-folder .` so `http://localhost:3000/` loads that file even when the remote preview has no `index.md` yet.
+
+   Optional: open `http://localhost:3000/drafts/` to hit the redirect stub (same as `/`).
+
+1. Optional global CLI: `npm install -g @adobe/aem-cli` then you can run the same flags manually.
 1. Open the `{repo}` directory in your favorite IDE and start coding :)

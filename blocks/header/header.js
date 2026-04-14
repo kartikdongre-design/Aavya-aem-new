@@ -116,7 +116,26 @@ export default async function decorate(block) {
   // load nav as fragment
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-  const fragment = await loadFragment(navPath);
+  let fragment = await loadFragment(navPath);
+  if (!fragment) {
+    const fallback = document.createElement('main');
+    fallback.innerHTML = `
+      <div><p><a href="/"></a></p></div>
+      <div>
+        <div class="default-content-wrapper">
+          <ul>
+            <li><a href="#">About Us</a><ul><li><a href="#">Overview</a></li></ul></li>
+            <li><a href="#">Products</a><ul><li><a href="#">Catalog</a></li></ul></li>
+            <li><a href="#">Sustainability</a><ul><li><a href="#">ESG</a></li></ul></li>
+            <li><a href="#">Investors</a><ul><li><a href="#">Reports</a></li></ul></li>
+            <li><a href="#">News &amp; Media</a><ul><li><a href="#">Press</a></li></ul></li>
+            <li><a href="#">Career</a></li>
+          </ul>
+        </div>
+      </div>
+      <div></div>`;
+    fragment = fallback;
+  }
 
   // decorate nav DOM
   block.textContent = '';
@@ -131,10 +150,12 @@ export default async function decorate(block) {
   });
 
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
+  const brandLink = navBrand?.querySelector('.button') || navBrand?.querySelector('a[href]');
   if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
+    if (brandLink.classList.contains('button')) {
+      brandLink.className = '';
+      brandLink.closest('.button-container')?.classList.remove('button-container');
+    }
   }
 
   const navSections = nav.querySelector('.nav-sections');

@@ -18,9 +18,9 @@ The repository provides the basic structure, blocks, and configuration needed to
 ## Setup Commands
 
 - Install dependencies: `npm install`
-- Start local development: `npx -y @adobe/aem-cli up --no-open --forward-browser-logs` (run in background, if possible)
-  - Install the AEM CLI globally by running `npm install -g @adobe/aem-cli` then `aem up` is equivalent to the command above
-  - The dev server runs at `http://localhost:3000` with auto-reload. Open it in playwright, puppeteer, or a browser. If none are available, ask the human to open it and give feedback.
+- Start local development: `npm start` (same as `npm run dev`). The CLI uses `--html-folder . --html-mount /`, so `http://localhost:3000/` serves the root **`index.html`** (corporate header/hero/stats) from the repository even when the remote preview has no published `index.md` yet.
+  - For global CLI: `npm install -g @adobe/aem-cli`
+  - The dev server runs at `http://localhost:3000` with auto-reload.
 - Run linting before committing: `npm run lint`
 - Auto-Fix linting issues: `npm run lint:fix`
 
