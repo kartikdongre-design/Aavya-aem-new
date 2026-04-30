@@ -2,4 +2,4 @@
 # (Project → Content configuration). Commit this file and publish index.md from
 # that folder so https://main--{repo}--{owner}.aem.page/ stops returning 404.
 mountpoints:
-  /: https://drive.google.com/drive/folders/<REAL_FOLDER_ID>
+  /: https://drive.google.com/drive/folders/13_PyFwHCHjzLUycn5SOgqtzwEgVNXBG1
