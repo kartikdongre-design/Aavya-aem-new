@@ -11,6 +11,12 @@
   <script nonce="aem" type="text/javascript">
     window.isErrorPage = true;
     window.errorCode = '404';
+    // Root currently resolves to 404 when no mounted `index` document exists.
+    // Redirect home requests to the static corporate homepage.
+    if (window.location.pathname === '/') {
+      const { search, hash } = window.location;
+      window.location.replace(`/index.html${search}${hash}`);
+    }
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="Page not found">
