@@ -88,6 +88,6 @@ This project uses a mountpoint in `fstab.yaml` for `/`, so authored page content
   4. Compare snapshots under `synced-content/` with expected authored output.
 
 - **Placeholder guard**
-  - `npm run content:verify:no-placeholder` fails if default boilerplate text (`Congrats, Welcome to AEM!`) is detected on preview home.
+  - `npm run content:verify:no-placeholder` fails if default boilerplate text (`Congrats, Welcome to kartikdongre`) is detected on preview home.
 
 This keeps sections/blocks synchronized without relying on static `index.html` content as source of truth for mounted pages.
