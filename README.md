@@ -88,7 +88,7 @@ This project uses a code-driven root page (`/`) from repository files and mounts
   4. Compare snapshots under `synced-content/` with expected authored output.
 
 - **Placeholder guard**
-  - `npm run content:verify:no-placeholder` fails if default boilerplate text (`Congrats, Welcome to kartikdongre`) is detected on preview home.
+  - `npm run content:verify:no-placeholder` fails if default boilerplate text (`Congrats, Welcome to AEM!`) is detected on preview home.
 
 This keeps structure/design in code while allowing AEM-managed content updates without modifying block implementation files.
 
