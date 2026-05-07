@@ -49,7 +49,10 @@ export default function decorate(block) {
   carousel.setAttribute('role', 'tablist');
   carousel.setAttribute('aria-label', 'Featured slides');
 
-  for (let i = 0; i < 4; i += 1) {
+  const dotCount = Number.parseInt(block.dataset.slideCount || '4', 10);
+  const totalDots = Number.isNaN(dotCount) || dotCount < 1 ? 4 : dotCount;
+
+  for (let i = 0; i < totalDots; i += 1) {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'hero__carousel-dot';

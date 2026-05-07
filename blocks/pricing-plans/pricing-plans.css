@@ -1,0 +1,44 @@
+.pricing-plans .pricing-plans-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.pricing-plans .pricing-plans-item {
+  border: 1px solid #2b3347;
+  border-radius: 18px;
+  padding: 1.3rem;
+  background: #10141f;
+  color: #e8eeff;
+}
+
+.pricing-plans .pricing-plans-item h3 {
+  margin-top: 0;
+  color: #fff;
+}
+
+.pricing-plans .pricing-plans-item p:first-of-type {
+  font-size: 2rem;
+  font-family: var(--heading-font-family);
+  color: #fff;
+}
+
+.pricing-plans .pricing-plans-item.is-featured {
+  border-color: #6e7cff;
+  box-shadow: 0 18px 42px rgb(68 88 255 / 28%);
+}
+
+@media (width >= 600px) {
+  .pricing-plans .pricing-plans-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 900px) {
+  .pricing-plans .pricing-plans-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

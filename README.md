@@ -91,3 +91,9 @@ This project uses a mountpoint in `fstab.yaml` for `/`, so authored page content
   - `npm run content:verify:no-placeholder` fails if default boilerplate text (`Congrats, Welcome to kartikdongre`) is detected on preview home.
 
 This keeps sections/blocks synchronized without relying on static `index.html` content as source of truth for mounted pages.
+
+## AEM-Editable Block Contracts
+
+For field-level mapping between authored AEM content and frontend block rendering, see:
+
+- `docs/block-authoring-model.md`

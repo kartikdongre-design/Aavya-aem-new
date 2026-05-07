@@ -33,8 +33,12 @@ export default function decorate(block) {
     };
   });
 
-  let active = slides.findIndex((s) => s.year.includes('1990'));
-  if (active < 0) active = Math.min(2, slides.length - 1);
+  const configuredYear = (block.dataset.defaultYear || '').trim();
+  let active = 0;
+  if (configuredYear) {
+    const configuredIndex = slides.findIndex((s) => s.year.includes(configuredYear));
+    if (configuredIndex >= 0) active = configuredIndex;
+  }
 
   const shell = document.createElement('div');
   shell.className = 'journey-timeline__shell';

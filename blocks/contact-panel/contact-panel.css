@@ -1,0 +1,48 @@
+.contact-panel {
+  background: radial-gradient(circle at 20% 20%, #1f2944, #0c101a 60%);
+  border-radius: 20px;
+  color: #eef2fe;
+  padding: 1.2rem;
+}
+
+.contact-panel .contact-panel-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.contact-panel .contact-panel-col h3 {
+  color: #fff;
+}
+
+.contact-panel .contact-panel-col p,
+.contact-panel .contact-panel-col li {
+  color: #c6cee2;
+}
+
+.contact-panel .contact-panel-col ul {
+  padding-left: 1.1rem;
+}
+
+.contact-panel .contact-panel-col form,
+.contact-panel .contact-panel-col .form {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.contact-panel .contact-panel-col input,
+.contact-panel .contact-panel-col textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #36415b;
+  background: #10182b;
+  color: #f5f8ff;
+  border-radius: 10px;
+  padding: 0.7rem 0.85rem;
+}
+
+@media (width >= 900px) {
+  .contact-panel .contact-panel-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}

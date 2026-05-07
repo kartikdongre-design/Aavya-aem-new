@@ -38,6 +38,9 @@
 
   /* nav height */
   --nav-height: 64px;
+  --site-surface-dark: #0d111a;
+  --site-surface-mid: #161d2b;
+  --site-border-soft: #2a3348;
 }
 
 /* fallback fonts */
@@ -307,7 +310,7 @@ main img {
 
 /* sections */
 main > .section {
-  margin: 40px 0;
+  margin: 64px 0;
 }
 
 main > .section > div {
@@ -318,6 +321,30 @@ main > .section > div {
 
 main > .section:first-of-type {
   margin-top: 0;
+}
+
+main > .section:has(.services-grid),
+main > .section:has(.testimonials-slider),
+main > .section:has(.pricing-plans),
+main > .section:has(.contact-panel) {
+  background: var(--site-surface-dark);
+  color: #ecf2ff;
+  margin: 0;
+  padding: 56px 0;
+}
+
+main > .section:has(.services-grid) h2,
+main > .section:has(.testimonials-slider) h2,
+main > .section:has(.pricing-plans) h2,
+main > .section:has(.contact-panel) h2 {
+  color: #fff;
+}
+
+main > .section:has(.services-grid) p,
+main > .section:has(.testimonials-slider) p,
+main > .section:has(.pricing-plans) p,
+main > .section:has(.contact-panel) p {
+  color: #c3ccde;
 }
 
 @media (width >= 900px) {
