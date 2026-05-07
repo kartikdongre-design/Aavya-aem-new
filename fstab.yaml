@@ -2,5 +2,5 @@
 # Keep this aligned with Project Admin > Content shown in sidekick admin.
 mountpoints:
   /content:
-    url: https://content.da.live/kartikdongre-design/aavya-aem-new/
+    url: https://content.da.live/kartikdongre-design/Aavya-aem-new/
     type: markup
