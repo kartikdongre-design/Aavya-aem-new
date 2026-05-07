@@ -40,3 +40,31 @@ npm run lint
 
 1. Optional global CLI: `npm install -g @adobe/aem-cli` then you can run the same flags manually.
 1. Open the `{repo}` directory in your favorite IDE and start coding :)
+
+## Live Preview Sync Workflow
+
+Use this flow to reflect local code changes on AEM preview URLs for all page sections and blocks.
+
+1. Run local development with auto-reload:
+   ```sh
+   npm start
+   ```
+2. Validate code and block mapping (excluding header/footer managed separately):
+   ```sh
+   npm run prepush:check
+   ```
+3. Push your branch to GitHub:
+   ```sh
+   git push -u origin <branch>
+   ```
+4. Open the feature preview URL printed by:
+   ```sh
+   npm run preview:urls
+   ```
+5. If updates seem stale, reload with cache-busting query string:
+   - `https://{branch}--{repo}--{owner}.aem.page/?v=<timestamp>`
+
+### Notes
+- AEM Code Sync publishes code changes from GitHub branches automatically to `.aem.page`.
+- `npm run verify:blocks` checks that local blocks referenced by `index.html` have corresponding local `blocks/{name}/{name}.js` and `blocks/{name}/{name}.css`.
+- Header/footer can remain managed independently via their block implementations.
