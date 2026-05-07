@@ -68,3 +68,26 @@ Use this flow to reflect local code changes on AEM preview URLs for all page sec
 - AEM Code Sync publishes code changes from GitHub branches automatically to `.aem.page`.
 - `npm run verify:blocks` checks that local blocks referenced by `index.html` have corresponding local `blocks/{name}/{name}.js` and `blocks/{name}/{name}.css`.
 - Header/footer can remain managed independently via their block implementations.
+
+## Two-Way Sync Model (Code + Content)
+
+This project uses a mountpoint in `fstab.yaml` for `/`, so authored page content is sourced from AEM DA content, while rendering logic/styling is sourced from this Git repository.
+
+- **Code path (Local -> Git -> AEM Preview/Live)**
+  1. Edit JS/CSS/block files locally.
+  2. Run `npm run prepush:check`.
+  3. Push your branch.
+  4. Validate on feature preview (`.aem.page`) from `npm run preview:urls`.
+
+- **Content path (AEM Author -> Preview/Live -> Local snapshot)**
+  1. Update page content in AEM/DA.
+  2. Publish/preview content in AEM.
+  3. Pull latest rendered content snapshot into repo:
+     - `npm run content:pull:preview` (branch preview)
+     - `npm run content:pull:live` (main live)
+  4. Compare snapshots under `synced-content/` with expected authored output.
+
+- **Placeholder guard**
+  - `npm run content:verify:no-placeholder` fails if default boilerplate text (`Congrats, Welcome to AEM!`) is detected on preview home.
+
+This keeps sections/blocks synchronized without relying on static `index.html` content as source of truth for mounted pages.
