@@ -92,6 +92,7 @@ This project keeps layout, styling, and behavior in code (`blocks/*`) while auth
 
 ## Publishing Behavior
 
-- AEM-authored content is served via `fstab.yaml` mountpoint (`/`).
-- After author edits and publish, content appears on preview/live URLs.
-- Block code changes still follow Git push -> AEM Code Sync workflow.
+- Page structure/styles/scripts are served from repository code (`/`).
+- AEM-authored content is served from the mounted `/content` path in `fstab.yaml`.
+- After author edits and publish, mounted content updates appear on preview/live URLs under `/content/...`.
+- Block code changes follow Git push -> AEM Code Sync workflow.

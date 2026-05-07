@@ -1,6 +1,6 @@
 # Content mount for Document Authoring (DA) source.
 # Keep this aligned with Project Admin > Content shown in sidekick admin.
 mountpoints:
-  /:
+  /content:
     url: https://content.da.live/kartikdongre-design/aavya-aem-new/
     type: markup

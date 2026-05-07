@@ -43,7 +43,7 @@ fi
 url="https://${host}${fetch_path}?v=$(date +%s)"
 content="$(curl -fsSL "$url")"
 
-if echo "$content" | rg -q "Congrats, Welcome to kartikdongre!"; then
+if echo "$content" | rg -q "Congrats, Welcome to AEM!"; then
   echo "Placeholder content detected at ${url}" >&2
   exit 1
 fi

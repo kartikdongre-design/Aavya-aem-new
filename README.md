@@ -71,29 +71,34 @@ Use this flow to reflect local code changes on AEM preview URLs for all page sec
 
 ## Two-Way Sync Model (Code + Content)
 
-This project uses a mountpoint in `fstab.yaml` for `/`, so authored page content is sourced from AEM DA content, while rendering logic/styling is sourced from this Git repository.
+This project uses a code-driven root page (`/`) from repository files and mounts AEM DA content under `/content` in `fstab.yaml`.
 
-- **Code path (Local -> Git -> AEM Preview/Live)**
+- **Code path (Local -> Git -> AEM Preview/Live for layout and block behavior)**
   1. Edit JS/CSS/block files locally.
   2. Run `npm run prepush:check`.
   3. Push your branch.
   4. Validate on feature preview (`.aem.page`) from `npm run preview:urls`.
 
-- **Content path (AEM Author -> Preview/Live -> Local snapshot)**
-  1. Update page content in AEM/DA.
+- **Content path (AEM Author -> Preview/Live -> Local snapshot for dynamic fields)**
+  1. Update page content in AEM/DA under `/content/...`.
   2. Publish/preview content in AEM.
   3. Pull latest rendered content snapshot into repo:
-     - `npm run content:pull:preview` (branch preview)
-     - `npm run content:pull:live` (main live)
+     - `npm run content:pull:preview` (pulls `/content/index` from branch preview)
+     - `npm run content:pull:live` (pulls `/content/index` from main live)
   4. Compare snapshots under `synced-content/` with expected authored output.
 
 - **Placeholder guard**
   - `npm run content:verify:no-placeholder` fails if default boilerplate text (`Congrats, Welcome to kartikdongre`) is detected on preview home.
 
-This keeps sections/blocks synchronized without relying on static `index.html` content as source of truth for mounted pages.
+This keeps structure/design in code while allowing AEM-managed content updates without modifying block implementation files.
 
 ## AEM-Editable Block Contracts
 
 For field-level mapping between authored AEM content and frontend block rendering, see:
 
 - `docs/block-authoring-model.md`
+
+For code-driven pages using AEM-managed dynamic content, author reusable content entries under `/content` and reference them from page blocks (for example via fragment/content links) so that:
+
+- block structure and behavior remain in repository code
+- editable text/images/links remain in AEM
