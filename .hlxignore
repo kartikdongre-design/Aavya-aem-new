@@ -1,5 +1,10 @@
 .*
-*.md
+README.md
+AGENTS.md
+CLAUDE.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+docs/*
 karma.config.js
 LICENSE
 package.json
