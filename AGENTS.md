@@ -17,10 +17,10 @@ The repository provides the basic structure, blocks, and configuration needed to
 
 ## Setup Commands
 
-- Install dependencies: `npm install`
-- Start local development: `npm start` (same as `npm run dev`). The CLI uses `--html-folder . --html-mount /`, so `http://localhost:3000/` serves the root **`index.html`** (corporate header/hero/stats) from the repository even when the remote preview has no published `index.md` yet.
-  - For global CLI: `npm install -g @adobe/aem-cli`
-  - The dev server runs at `http://localhost:3000` with auto-reload.
+- Install dependencies: `npm install` (root AEM tooling only). For the **React storefront** in `ecommerce-react/`, the dev script installs shop dependencies on first run; or run **`npm run install:shop`** once after clone.
+- **Default local URL:** **`npm start`** (same as `npm run dev`) launches the **React eCommerce** app via Vite — typically **`http://localhost:3000/`** — with hot reload.
+- Edge Delivery preview (Vanilla AEM boilerplate, `index.html` + blocks): **`npm run dev:aem`**. Uses `--html-folder . --html-mount /`. Stop the storefront dev server before starting if both would use port 3000 (or change Vite’s port under `ecommerce-react/vite.config.js`).
+  - For global CLI (AEM only): `npm install -g @adobe/aem-cli`
 - Run linting before committing: `npm run lint`
 - Auto-Fix linting issues: `npm run lint:fix`
 

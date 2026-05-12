@@ -1,0 +1,43 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-50: oklch(0.97 0.02 280);
+  --color-brand-100: oklch(0.93 0.05 280);
+  --color-brand-200: oklch(0.86 0.1 280);
+  --color-brand-300: oklch(0.78 0.14 280);
+  --color-brand-400: oklch(0.68 0.18 280);
+  --color-brand-500: oklch(0.58 0.22 285);
+  --color-brand-600: oklch(0.5 0.22 285);
+  --color-brand-700: oklch(0.42 0.2 285);
+  --color-brand-800: oklch(0.35 0.16 285);
+  --color-brand-900: oklch(0.28 0.12 285);
+
+  --color-surface-light: oklch(0.99 0.005 280);
+  --color-surface-dark: oklch(0.16 0.02 280);
+  --color-glass-light: oklch(1 0 0 / 0.65);
+  --color-glass-dark: oklch(0.22 0.02 280 / 0.6);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+/* Swiper tweaks */
+.swiper-button-next,
+.swiper-button-prev {
+  color: inherit;
+}
+.swiper-pagination-bullet-active {
+  background: var(--color-brand-500);
+}
+
+.dark {
+  color-scheme: dark;
+}

@@ -30,24 +30,23 @@ npm run lint
 1. Create a new repository based on the `aem-boilerplate` template
 1. Add the [AEM Code Sync GitHub App](https://github.com/apps/aem-code-sync) to the repository
 1. Install dependencies: `npm i`
-1. **Start the dev server** (serves the corporate home from **`index.html` at the repo root**):
+1. **Start the dev server — React storefront:** `npm start` (same as `npm run dev`) runs Vite from `ecommerce-react/` at **`http://localhost:3000/`** with hot reload. Shop deps install automatically on first run (`tools/dev-shop.sh`); or run **`npm run install:shop`** once manually.
+1. **Edge Delivery / blocks preview** (Vanilla `index.html` + blocks, not the React app):  
    ```sh
-   npm start
+   npm run dev:aem
    ```
-   Or run plain `aem up` — the CLI uses `--html-folder .` so `http://localhost:3000/` loads that file even when the remote preview has no `index.md` yet.
+   Same `localhost:3000`-style URL as the CLI default; only one of `npm start` and `npm run dev:aem` can use that port at a time. Optional: `aem up` with `--html-folder .` for the same AEM experience.
 
-   Optional: open `http://localhost:3000/drafts/` to hit the redirect stub (same as `/`).
-
-1. Optional global CLI: `npm install -g @adobe/aem-cli` then you can run the same flags manually.
+1. Optional global CLI (AEM): `npm install -g @adobe/aem-cli`
 1. Open the `{repo}` directory in your favorite IDE and start coding :)
 
 ## Live Preview Sync Workflow
 
 Use this flow to reflect local code changes on AEM preview URLs for all page sections and blocks.
 
-1. Run local development with auto-reload:
+1. Run local Edge Delivery development with auto-reload (not the React shop):
    ```sh
-   npm start
+   npm run dev:aem
    ```
 2. Validate code and block mapping (excluding header/footer managed separately):
    ```sh

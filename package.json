@@ -5,7 +5,10 @@
   "description": "Starter project for Adobe Helix",
   "scripts": {
     "start": "npm run dev",
-    "dev": "npx @adobe/aem-cli up --no-open --forward-browser-logs --html-folder . --html-mount /",
+    "dev": "bash ./tools/dev-shop.sh",
+    "dev:aem": "npx @adobe/aem-cli up --no-open --forward-browser-logs --html-folder . --html-mount /",
+    "dev:shop": "npm run dev",
+    "install:shop": "npm install --prefix ecommerce-react",
     "preview:urls": "bash ./tools/preview-urls.sh",
     "content:pull:preview": "bash ./tools/pull-aem-content.sh preview /content/index",
     "content:pull:live": "bash ./tools/pull-aem-content.sh live /content/index",
