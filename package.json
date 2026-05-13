@@ -9,6 +9,7 @@
     "dev:aem": "npx @adobe/aem-cli up --no-open --forward-browser-logs --html-folder . --html-mount /",
     "dev:shop": "npm run dev",
     "install:shop": "npm install --prefix ecommerce-react",
+    "build:shop": "npm run build --prefix ecommerce-react",
     "preview:urls": "bash ./tools/preview-urls.sh",
     "content:pull:preview": "bash ./tools/pull-aem-content.sh preview /content/index",
     "content:pull:live": "bash ./tools/pull-aem-content.sh live /content/index",

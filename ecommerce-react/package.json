@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && cp ../shop/index.html ../index-shopping.html",
     "preview": "vite preview",
     "lint": "eslint ."
   },
