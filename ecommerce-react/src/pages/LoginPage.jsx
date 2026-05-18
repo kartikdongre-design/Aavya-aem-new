@@ -7,34 +7,74 @@ import PageWrapper from '../components/layout/PageWrapper.jsx';
 import Container from '../components/layout/Container.jsx';
 import Button from '../components/ui/Button.jsx';
 import Input from '../components/ui/Input.jsx';
+import FormAlert from '../components/ui/FormAlert.jsx';
 import { loginSuccess } from '../store/slices/authSlice.js';
+import { validateLoginFields } from '../../shared/validation.js';
+import { loginUser } from '../services/authService.js';
 
 export default function LoginPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: '', password: '' });
   const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState({ type: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onChange =
     (key) =>
       (e) => {
         setForm((f) => ({ ...f, [key]: e.target.value }));
-        setErrors({});
+        setErrors((prev) => {
+          if (!prev[key]) return prev;
+          const next = { ...prev };
+          delete next[key];
+          return next;
+        });
+        setStatus({ type: '', message: '' });
       };
 
-  const validate = () => {
-    const e = {};
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = 'Enter a valid email';
-    if (form.password.length < 8) e.password = 'Minimum 8 characters';
-    setErrors(e);
-    return Object.keys(e).length === 0;
-  };
-
-  const submit = (ev) => {
+  const submit = async (ev) => {
     ev.preventDefault();
-    if (!validate()) return;
-    dispatch(loginSuccess({ name: form.email.split('@')[0] || 'Member', email: form.email }));
-    navigate('/');
+    setStatus({ type: '', message: '' });
+
+    const fieldErrors = validateLoginFields(form);
+    if (Object.keys(fieldErrors).length > 0) {
+      setErrors(fieldErrors);
+      setStatus({ type: 'error', message: 'Please fix the highlighted fields.' });
+      return;
+    }
+
+    setErrors({});
+    setIsSubmitting(true);
+
+    try {
+      const result = await loginUser({
+        email: form.email.trim(),
+        password: form.password,
+      });
+
+      if (!result.success) {
+        if (result.errors) setErrors(result.errors);
+        setStatus({ type: 'error', message: result.message });
+        return;
+      }
+
+      setStatus({ type: 'success', message: result.message });
+      dispatch(
+        loginSuccess({
+          name: form.email.trim().split('@')[0] || 'Member',
+          email: form.email.trim(),
+        }),
+      );
+      navigate('/');
+    } catch {
+      setStatus({
+        type: 'error',
+        message: 'Unable to reach the login service. Is the API server running?',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const socialDisabled = () => {
@@ -58,27 +98,38 @@ export default function LoginPage() {
             Log in to Velvora
           </h1>
           <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">
-            Credentials stay client-side — this is an interactive UX demo.
+            Sign in with your email and password. New accounts are saved securely on the server.
           </p>
+
           <form className="mt-8 space-y-4" onSubmit={submit} noValidate>
+            {status.message ? (
+              <FormAlert variant={status.type === 'success' ? 'success' : 'error'}>
+                {status.message}
+              </FormAlert>
+            ) : null}
+
             <Input
               label="Email"
+              name="email"
               type="email"
               autoComplete="email"
               value={form.email}
               onChange={onChange('email')}
               error={errors.email}
+              disabled={isSubmitting}
             />
             <Input
               label="Password"
+              name="password"
               type="password"
               autoComplete="current-password"
               value={form.password}
               onChange={onChange('password')}
               error={errors.password}
+              disabled={isSubmitting}
             />
-            <Button type="submit" className="mt-4 w-full">
-              Continue with email
+            <Button type="submit" className="mt-4 w-full" disabled={isSubmitting}>
+              {isSubmitting ? 'Logging in…' : 'Login'}
             </Button>
           </form>
 

@@ -7,4 +7,16 @@ if [[ ! -d ecommerce-react/node_modules ]] || [[ ! -f ecommerce-react/node_modul
   echo "[dev-shop] Installing ecommerce-react dependencies (first run or missing vite)..."
   npm install --prefix ecommerce-react --no-fund --no-audit
 fi
+API_PID=""
+cleanup() {
+  if [[ -n "$API_PID" ]]; then
+    kill "$API_PID" 2>/dev/null || true
+  fi
+}
+trap cleanup EXIT INT TERM
+
+echo "[dev-shop] Starting auth API on port 3001..."
+node "$ROOT/ecommerce-react/server/index.js" &
+API_PID=$!
+
 exec npm run dev --prefix ecommerce-react

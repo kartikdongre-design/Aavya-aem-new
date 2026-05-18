@@ -10,6 +10,12 @@ export default defineConfig(({ command }) => ({
     port: 3000,
     /** If AEM `npm start` is already on 3000, stop it first or set strictPort: false. */
     strictPort: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+      },
+    },
   },
   build: {
     outDir: '../shop',
