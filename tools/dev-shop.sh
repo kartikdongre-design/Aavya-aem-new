@@ -3,8 +3,11 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
-if [[ ! -d ecommerce-react/node_modules ]] || [[ ! -f ecommerce-react/node_modules/vite/package.json ]]; then
-  echo "[dev-shop] Installing ecommerce-react dependencies (first run or missing vite)..."
+if [[ ! -d ecommerce-react/node_modules ]] \
+  || [[ ! -f ecommerce-react/node_modules/vite/package.json ]] \
+  || [[ ! -f ecommerce-react/node_modules/express/package.json ]] \
+  || [[ ! -f ecommerce-react/node_modules/bcrypt/package.json ]]; then
+  echo "[dev-shop] Installing ecommerce-react dependencies (first run or missing packages)..."
   npm install --prefix ecommerce-react --no-fund --no-audit
 fi
 API_PID=""

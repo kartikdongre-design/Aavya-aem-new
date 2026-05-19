@@ -7,38 +7,80 @@ import PageWrapper from '../components/layout/PageWrapper.jsx';
 import Container from '../components/layout/Container.jsx';
 import Button from '../components/ui/Button.jsx';
 import Input from '../components/ui/Input.jsx';
+import FormAlert from '../components/ui/FormAlert.jsx';
 import { loginSuccess } from '../store/slices/authSlice.js';
+import { validateRegisterFields } from '../../shared/validation.js';
+import { registerUser } from '../services/authService.js';
 
 export default function SignupPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [form, setForm] = useState({ name: '', email: '', password: '', confirm: '' });
   const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState({ type: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onChange =
     (key) =>
       (e) => {
         setForm((f) => ({ ...f, [key]: e.target.value }));
-        setErrors({});
+        setErrors((prev) => {
+          if (!prev[key]) return prev;
+          const next = { ...prev };
+          delete next[key];
+          return next;
+        });
+        setStatus({ type: '', message: '' });
       };
 
   const validate = () => {
-    const e = {};
-    if (!form.name.trim()) e.name = 'Tell us your name';
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = 'Enter a valid email';
-    if (form.password.length < 8 || !/[A-Za-z]/.test(form.password) || !/[0-9]/.test(form.password)) {
-      e.password = 'Mix letters & numbers • 8+ chars';
+    const fieldErrors = validateRegisterFields(form);
+    if (form.password && form.confirm && form.password !== form.confirm) {
+      fieldErrors.confirm = 'Passwords must match';
     }
-    if (form.password !== form.confirm) e.confirm = 'Passwords must match';
-    setErrors(e);
-    return Object.keys(e).length === 0;
+    setErrors(fieldErrors);
+    return Object.keys(fieldErrors).length === 0;
   };
 
-  const submit = (ev) => {
+  const submit = async (ev) => {
     ev.preventDefault();
-    if (!validate()) return;
-    dispatch(loginSuccess({ name: form.name.trim(), email: form.email.trim() }));
-    navigate('/');
+    setStatus({ type: '', message: '' });
+
+    if (!validate()) {
+      setStatus({ type: 'error', message: 'Please fix the highlighted fields.' });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const result = await registerUser({
+        email: form.email.trim(),
+        password: form.password,
+      });
+
+      if (!result.success) {
+        if (result.errors) setErrors(result.errors);
+        setStatus({ type: 'error', message: result.message });
+        return;
+      }
+
+      setStatus({ type: 'success', message: result.message });
+      dispatch(
+        loginSuccess({
+          name: form.name.trim() || form.email.trim().split('@')[0] || 'Member',
+          email: form.email.trim(),
+        }),
+      );
+      navigate('/login');
+    } catch {
+      setStatus({
+        type: 'error',
+        message: 'Unable to reach the registration service. Is the API server running?',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const demoSocial = () => {
@@ -60,22 +102,56 @@ export default function SignupPage() {
           <h1 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-bold text-zinc-900 dark:text-white">
             Create account
           </h1>
-          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">Unlock receipts, perks, and wishlist sync.</p>
+          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">
+            Register with your email and password. Your credentials are stored securely on the server.
+          </p>
 
           <form className="mt-8 space-y-4" onSubmit={submit} noValidate>
-            <Input label="Full name" value={form.name} onChange={onChange('name')} error={errors.name} />
-            <Input label="Email" type="email" value={form.email} onChange={onChange('email')} error={errors.email} />
+            {status.message ? (
+              <FormAlert variant={status.type === 'success' ? 'success' : 'error'}>
+                {status.message}
+              </FormAlert>
+            ) : null}
+
+            <Input
+              label="Full name"
+              name="name"
+              value={form.name}
+              onChange={onChange('name')}
+              disabled={isSubmitting}
+            />
+            <Input
+              label="Email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              value={form.email}
+              onChange={onChange('email')}
+              error={errors.email}
+              disabled={isSubmitting}
+            />
             <Input
               label="Password"
+              name="password"
               type="password"
+              autoComplete="new-password"
               value={form.password}
               onChange={onChange('password')}
-              hint="Letters + digits, 8+ characters"
               error={errors.password}
+              disabled={isSubmitting}
             />
-            <Input label="Confirm password" type="password" value={form.confirm} onChange={onChange('confirm')} error={errors.confirm} />
-            <Button type="submit" className="mt-4 w-full">
-              Join & continue
+            <Input
+              label="Confirm password"
+              name="confirm"
+              type="password"
+              autoComplete="new-password"
+              value={form.confirm}
+              onChange={onChange('confirm')}
+              error={errors.confirm}
+              disabled={isSubmitting}
+            />
+            <Button type="submit" className="mt-4 w-full" disabled={isSubmitting}>
+              {isSubmitting ? 'Creating account…' : 'Create account'}
             </Button>
           </form>
 

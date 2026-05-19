@@ -31,3 +31,18 @@ export function validateLoginFields({ email = '', password = '' }) {
   }
   return errors;
 }
+
+/**
+ * @param {{ email?: string; password?: string }} fields
+ * @returns {Record<string, string>}
+ */
+export function validateRegisterFields({ email = '', password = '' }) {
+  const errors = {};
+  if (!isValidEmail(email)) {
+    errors.email = 'Enter a valid email address';
+  }
+  if (!isNonEmptyPassword(password)) {
+    errors.password = 'Password is required';
+  }
+  return errors;
+}
