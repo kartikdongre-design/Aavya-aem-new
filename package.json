@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "bash ./tools/dev-shop.sh",
+    "dev:admin-suite": "bash ./tools/dev-shopping-admin-suite.sh",
     "dev:aem": "npx @adobe/aem-cli up --no-open --forward-browser-logs --html-folder . --html-mount /",
     "dev:shop": "npm run dev",
     "install:shop": "npm install --prefix ecommerce-react",

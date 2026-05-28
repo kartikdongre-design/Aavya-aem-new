@@ -3,6 +3,10 @@
     {
       "email": "john@gmail.com",
       "password": "$2b$10$xJTFOgj89bmCepxMdb9qhePRfHKpVXRKwKLCYggGDdMCm7Cr8F/nO"
+    },
+    {
+      "email": "admin@velvora.shop",
+      "password": "$2b$10$tigUMjnfoXCGlhOG8eDq5uKs70sv74BXMf8SYnwaY9QuM43z31/va"
     }
   ]
 }
