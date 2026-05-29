@@ -1,0 +1,42 @@
+{
+  "homepage": {
+    "heroTitle": "Discover Your Perfect Urban Sanctuary",
+    "heroSubtitle": "Premium residences, luxury villas, and investment-grade properties curated for discerning buyers.",
+    "heroImage": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80",
+    "ctaText": "Explore Properties"
+  },
+  "contact": {
+    "phone": "+1 (555) 234-8900",
+    "email": "hello@urbannest.com",
+    "address": "1200 Skyline Avenue, Suite 400, New York, NY"
+  },
+  "partners": [
+    { "id": "p1", "name": "Skyline Developments" },
+    { "id": "p2", "name": "Harbor Estates" },
+    { "id": "p3", "name": "Metro Living Group" },
+    { "id": "p4", "name": "Prime Urban Holdings" }
+  ],
+  "testimonials": [
+    {
+      "id": "t1",
+      "name": "Sarah Mitchell",
+      "role": "Home Buyer",
+      "quote": "UrbanNest made finding our dream penthouse effortless. Exceptional service from start to finish.",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80"
+    },
+    {
+      "id": "t2",
+      "name": "James Chen",
+      "role": "Investor",
+      "quote": "Their portfolio insights and market knowledge helped us secure three high-yield commercial assets.",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+    },
+    {
+      "id": "t3",
+      "name": "Elena Rodriguez",
+      "role": "Relocating Executive",
+      "quote": "Seamless relocation support and premium listings — exactly what we needed for our family move.",
+      "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80"
+    }
+  ]
+}

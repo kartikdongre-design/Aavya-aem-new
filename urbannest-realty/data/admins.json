@@ -1,0 +1,9 @@
+{
+  "admins": [
+    {
+      "email": "admin@urbannest.com",
+      "name": "UrbanNest Admin",
+      "password": "$2b$10$raw2xc8aTCKQ3QTDU/nhGupWCnb5YCoZ2ZaVlnEg0.unxRGSRy2d2"
+    }
+  ]
+}

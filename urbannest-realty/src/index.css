@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+
+  --color-gold-50: oklch(0.98 0.02 85);
+  --color-gold-100: oklch(0.94 0.05 85);
+  --color-gold-200: oklch(0.88 0.1 85);
+  --color-gold-300: oklch(0.8 0.14 80);
+  --color-gold-400: oklch(0.72 0.16 75);
+  --color-gold-500: oklch(0.65 0.18 70);
+  --color-gold-600: oklch(0.55 0.16 65);
+  --color-gold-700: oklch(0.45 0.14 60);
+
+  --color-slate-850: oklch(0.22 0.02 260);
+  --color-slate-900: oklch(0.18 0.02 260);
+  --color-slate-950: oklch(0.12 0.02 260);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  @apply bg-stone-50 text-slate-900 antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
