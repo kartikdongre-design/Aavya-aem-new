@@ -1,0 +1,1 @@
+import{j as t,m as n}from"./index-Di7uXOd8.js";const o={initial:{opacity:0,y:14},animate:{opacity:1,y:0}};function e({children:a,className:i=""}){return t.jsx(n.div,{variants:o,initial:"initial",animate:"animate",transition:{duration:.4,ease:[.22,1,.36,1]},className:i,children:a})}export{e as P};

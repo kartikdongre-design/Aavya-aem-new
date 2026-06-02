@@ -7,7 +7,7 @@
     "dev": "concurrently -k -n api,web -c blue,green \"npm run dev:api\" \"vite\"",
     "dev:api": "node server/index.js",
     "dev:web": "vite",
-    "build": "vite build",
+    "build": "node scripts/prepare-static-data.js && vite build && cp ../urbannest/index.html ../index-urbannest-realty.html",
     "preview": "vite preview"
   },
   "dependencies": {

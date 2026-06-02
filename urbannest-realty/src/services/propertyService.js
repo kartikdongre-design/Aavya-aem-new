@@ -1,13 +1,55 @@
 import { apiFetch } from './api.js';
 
+async function fetchStaticProperties() {
+  const base = import.meta.env.BASE_URL || '/';
+  const res = await fetch(`${base}data/properties.json`);
+  if (!res.ok) throw new Error('Static properties unavailable');
+  const data = await res.json();
+  return data.properties || [];
+}
+
+async function fetchStaticPropertyBySlug(slug) {
+  const properties = await fetchStaticProperties();
+  return properties.find((p) => p.slug === slug) || null;
+}
+
 export async function fetchProperties() {
-  const data = await apiFetch('/api/properties');
-  return data.properties;
+  if (import.meta.env.PROD) {
+    try {
+      return await fetchStaticProperties();
+    } catch {
+      /* fall through to API if configured */
+    }
+  }
+  try {
+    const data = await apiFetch('/api/properties');
+    return data.properties;
+  } catch (err) {
+    if (import.meta.env.PROD) {
+      return fetchStaticProperties();
+    }
+    throw err;
+  }
 }
 
 export async function fetchPropertyBySlug(slug) {
-  const data = await apiFetch(`/api/properties/${slug}`);
-  return data.property;
+  if (import.meta.env.PROD) {
+    try {
+      const property = await fetchStaticPropertyBySlug(slug);
+      if (property) return property;
+    } catch {
+      /* fall through */
+    }
+  }
+  try {
+    const data = await apiFetch(`/api/properties/${slug}`);
+    return data.property;
+  } catch (err) {
+    if (import.meta.env.PROD) {
+      return fetchStaticPropertyBySlug(slug);
+    }
+    throw err;
+  }
 }
 
 export async function createProperty(payload) {

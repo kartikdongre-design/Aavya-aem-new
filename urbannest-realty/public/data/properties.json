@@ -1,0 +1,207 @@
+{
+  "properties": [
+    {
+      "id": "prop-001",
+      "slug": "skyline-penthouse-manhattan",
+      "title": "Skyline Penthouse Manhattan",
+      "description": "An exquisite penthouse offering panoramic city views, floor-to-ceiling windows, and bespoke Italian finishes throughout. Private elevator access, wine cellar, and rooftop terrace with infinity pool.",
+      "price": 4850000,
+      "location": "Manhattan, New York",
+      "category": "apartments",
+      "bedrooms": 4,
+      "bathrooms": 4,
+      "areaSqft": 4200,
+      "featured": true,
+      "status": "for-sale",
+      "images": [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "amenities": ["Private Elevator", "Rooftop Pool", "Wine Cellar", "Smart Home", "Concierge", "Gym"],
+      "agent": {
+        "name": "Victoria Hayes",
+        "phone": "+1 (555) 101-2001",
+        "email": "victoria@urbannest.com",
+        "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
+      },
+      "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.0!2d-73.9857!3d40.7484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzU0LjIiTiA3M8KwNTknMDguNSJX!5e0!3m2!1sen!2sus!4v1"
+    },
+    {
+      "id": "prop-002",
+      "slug": "coastal-villa-malibu",
+      "title": "Coastal Villa Malibu",
+      "description": "Oceanfront luxury villa with private beach access, infinity pool overlooking the Pacific, and expansive entertaining spaces designed for coastal living at its finest.",
+      "price": 8900000,
+      "location": "Malibu, California",
+      "category": "villas",
+      "bedrooms": 6,
+      "bathrooms": 7,
+      "areaSqft": 8500,
+      "featured": true,
+      "status": "for-sale",
+      "images": [
+        "https://images.unsplash.com/photo-1613490492576-7469e9e4a9b8?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "amenities": ["Private Beach", "Infinity Pool", "Home Theater", "Guest House", "EV Charging"],
+      "agent": {
+        "name": "Marcus Reid",
+        "phone": "+1 (555) 101-2002",
+        "email": "marcus@urbannest.com",
+        "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80"
+      },
+      "mapEmbed": ""
+    },
+    {
+      "id": "prop-003",
+      "slug": "modern-loft-downtown",
+      "title": "Modern Loft Downtown",
+      "description": "Industrial-chic loft in a converted warehouse district. Exposed brick, 14-foot ceilings, and designer kitchen in the heart of the arts quarter.",
+      "price": 1250000,
+      "location": "Chicago, Illinois",
+      "category": "apartments",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "areaSqft": 1800,
+      "featured": true,
+      "status": "for-sale",
+      "images": [
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "amenities": ["Exposed Brick", "Rooftop Deck", "Parking", "Pet Friendly"],
+      "agent": {
+        "name": "Victoria Hayes",
+        "phone": "+1 (555) 101-2001",
+        "email": "victoria@urbannest.com",
+        "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
+      },
+      "mapEmbed": ""
+    },
+    {
+      "id": "prop-004",
+      "slug": "estate-home-greenwich",
+      "title": "Estate Home Greenwich",
+      "description": "Classic New England estate on 2.5 acres with manicured gardens, tennis court, and carriage house. Timeless elegance meets modern comfort.",
+      "price": 6200000,
+      "location": "Greenwich, Connecticut",
+      "category": "luxury-homes",
+      "bedrooms": 7,
+      "bathrooms": 8,
+      "areaSqft": 12000,
+      "featured": false,
+      "status": "for-sale",
+      "images": [
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "amenities": ["Tennis Court", "Guest House", "Library", "Wine Room", "3-Car Garage"],
+      "agent": {
+        "name": "Marcus Reid",
+        "phone": "+1 (555) 101-2002",
+        "email": "marcus@urbannest.com",
+        "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80"
+      },
+      "mapEmbed": ""
+    },
+    {
+      "id": "prop-005",
+      "slug": "downtown-office-tower",
+      "title": "Downtown Office Tower Suite",
+      "description": "Premium Class A office space with floor-to-ceiling glass, LEED certification, and turnkey fit-out ready for immediate occupancy.",
+      "price": 3200000,
+      "location": "Austin, Texas",
+      "category": "commercial",
+      "bedrooms": 0,
+      "bathrooms": 4,
+      "areaSqft": 15000,
+      "featured": false,
+      "status": "for-sale",
+      "images": [
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "amenities": ["LEED Certified", "24/7 Security", "Conference Rooms", "Parking Garage"],
+      "agent": {
+        "name": "Victoria Hayes",
+        "phone": "+1 (555) 101-2001",
+        "email": "victoria@urbannest.com",
+        "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
+      },
+      "mapEmbed": ""
+    },
+    {
+      "id": "prop-006",
+      "slug": "vineyard-farmhouse-napa",
+      "title": "Vineyard Farmhouse Napa",
+      "description": "Charming farmhouse surrounded by rolling vineyards. Stone fireplace, wraparound porch, and guest cottage on 8 acres of wine country.",
+      "price": 2750000,
+      "location": "Napa Valley, California",
+      "category": "farmhouses",
+      "bedrooms": 5,
+      "bathrooms": 4,
+      "areaSqft": 4500,
+      "featured": true,
+      "status": "for-sale",
+      "images": [
+        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "amenities": ["Vineyard Views", "Guest Cottage", "Barn", "Outdoor Kitchen"],
+      "agent": {
+        "name": "Marcus Reid",
+        "phone": "+1 (555) 101-2002",
+        "email": "marcus@urbannest.com",
+        "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80"
+      },
+      "mapEmbed": ""
+    },
+    {
+      "id": "prop-007",
+      "slug": "luxury-rental-miami",
+      "title": "Luxury Rental — Brickell Bay",
+      "description": "Fully furnished waterfront rental with resort amenities. Monthly lease available for executives and seasonal residents.",
+      "price": 12500,
+      "location": "Miami, Florida",
+      "category": "rental",
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "areaSqft": 2200,
+      "featured": false,
+      "status": "for-rent",
+      "images": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "amenities": ["Furnished", "Pool", "Spa", "Valet", "Bay Views"],
+      "agent": {
+        "name": "Victoria Hayes",
+        "phone": "+1 (555) 101-2001",
+        "email": "victoria@urbannest.com",
+        "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
+      },
+      "mapEmbed": ""
+    },
+    {
+      "id": "prop-008",
+      "slug": "suburban-family-home",
+      "title": "Suburban Family Home",
+      "description": "Spacious family residence in top-rated school district. Open floor plan, landscaped backyard, and finished basement.",
+      "price": 895000,
+      "location": "Plano, Texas",
+      "category": "luxury-homes",
+      "bedrooms": 5,
+      "bathrooms": 4,
+      "areaSqft": 3800,
+      "featured": false,
+      "status": "for-sale",
+      "images": [
+        "https://images.unsplash.com/photo-1600047509807-ba8f99d2cd4e?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "amenities": ["Pool", "Home Office", "Smart Thermostat", "Solar Panels"],
+      "agent": {
+        "name": "Marcus Reid",
+        "phone": "+1 (555) 101-2002",
+        "email": "marcus@urbannest.com",
+        "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80"
+      },
+      "mapEmbed": ""
+    }
+  ]
+}

@@ -2,7 +2,9 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  /** AEM static host serves bundles under /urbannest/ (see index-urbannest-realty.html). */
+  base: command === 'build' ? '/urbannest/' : '/',
   plugins: [react(), tailwindcss()],
   server: {
     port: 3200,
@@ -12,4 +14,8 @@ export default defineConfig({
       '/uploads': { target: 'http://localhost:3201', changeOrigin: true },
     },
   },
-});
+  build: {
+    outDir: '../urbannest',
+    emptyOutDir: true,
+  },
+}));
